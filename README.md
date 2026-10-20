@@ -8,7 +8,7 @@ Follow every server's current rules and only enable mining where you have permis
 
 ## Download
 
-- Prebuilt JAR: [`site/public/donutsmp-rtp-mapper-1.3.0.jar`](site/public/donutsmp-rtp-mapper-1.3.0.jar) (216,303 bytes, SHA-256 `24524925a929166c5cf899e421a23f4fec1aaeac89c403f23a0e9f5e51eec689`).
+- Prebuilt JAR: [`site/public/donutsmp-rtp-mapper-1.3.0.jar`](site/public/donutsmp-rtp-mapper-1.3.0.jar) (216,321 bytes, SHA-256 `5cbcbfc28caf6205ba974b140db7ff92999c64d8cdc9fa23b635f66ea34737bf`).
 - Web download page: <https://site-102406ae8f404268a88ac25b05fc847a.freebuff.page> (served from `site/`, JAR is sent with `Content-Disposition: attachment`).
 - Or build it yourself with the commands below.
 
@@ -55,7 +55,7 @@ The JAR is client-only. It is not needed or intended on the server.
 
 There are two ways to open the mapper screen:
 
-1. Press **Right Shift** in game (default keybind, rebindable under **Options → Controls → Key Binds → DonutSMP RTP Mapper**).
+1. Press **U** in game (default keybind, rebindable under **Options → Controls → Key Binds → DonutSMP RTP Mapper**).
 2. Press **Esc** in game and click the **RTP Mapper** button in the bottom-left corner of the pause menu.
 
 `/rtpmapper status` in chat prints the same state without opening the screen.

@@ -32,6 +32,8 @@ public final class RtpMapperClient implements ClientModInitializer {
     private static final KeyMapping.Category KEY_CATEGORY = KeyMapping.Category.register(
         Identifier.fromNamespaceAndPath(MOD_ID, "controls")
     );
+    /** Default GLFW key for opening the mapper screen (the letter U). */
+    private static final int DEFAULT_OPEN_KEY = GLFW.GLFW_KEY_U;
     private static final int PAUSE_BUTTON_WIDTH = 120;
     private static final int PAUSE_BUTTON_HEIGHT = 20;
     private static final int PAUSE_BUTTON_MARGIN = 8;
@@ -47,7 +49,7 @@ public final class RtpMapperClient implements ClientModInitializer {
         openScreenKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
             "key.rtpmapper.open",
             InputConstants.Type.KEYSYM,
-            GLFW.GLFW_KEY_RIGHT_SHIFT,
+            DEFAULT_OPEN_KEY,
             KEY_CATEGORY
         ));
         emergencyStopKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
