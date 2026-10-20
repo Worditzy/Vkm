@@ -130,7 +130,7 @@
 
     <div class="grid" style="margin-top:18px">
       <div class="chip"><small>Minecraft</small><span>1.21.11</span></div>
-      <div class="chip"><small>Fabric Loader</small><span>0.19.3+</span></div>
+      <div class="chip"><small>Fabric Loader</small><span>0.19.5</span></div>
       <div class="chip"><small>Fabric API</small><span>0.141.6+1.21.11</span></div>
       <div class="chip"><small>Java</small><span>21</span></div>
     </div>
@@ -155,6 +155,8 @@
 
   <h2>Troubleshooting</h2>
   <p class="lede" style="margin-bottom:10px"><strong>Crash: <code>Unsupported class file major version 65</code></strong> — that is a stale Fabric Loader, not the mod. Minecraft 1.21.11 is compiled for Java 21, and loader 0.14.6 cannot read Java 21 class files. Install Fabric with loader <strong>0.19.3 or newer</strong> and a <strong>Java 21</strong> runtime, then launch the new profile. On Android launchers (PojavLauncher / Mojo) set the loader version explicitly instead of accepting the default.</p>
+
+  <p class="lede" style="margin-bottom:10px"><strong>Error: <code>Incompatible mods found!</code> / <code>Mod resolution failed</code></strong> — the profile is still on an old loader. 1.21.11 needs loader <strong>0.19.5</strong> (newest stable; 0.19.3 is the minimum). Fabric API requires ≥0.17.3 and this mod requires ≥0.19.3, so 0.16.12 and 0.17.x are rejected. After reinstalling Fabric, the profile name should read <code>fabric-loader-0.19.5-1.21.11</code>.</p>
 
   <p class="note">The JAR is client-side only. It does not automate movement, combat or inventories, and the optional Baritone mining controller is off by default — only enable it where the server permits it. Follow DonutSMP's current rules.</p>
 

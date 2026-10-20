@@ -18,7 +18,7 @@ The download page lives in [`site/`](site) and is a static `index.html` plus a t
 
 - Minecraft Java Edition 1.21.11
 - Java 21
-- Fabric Loader 0.19.3 or a compatible newer loader
+- Fabric Loader 0.19.5 (newest stable; 0.19.3 minimum, anything below 0.19.3 is rejected)
 - Fabric API 0.141.6+1.21.11
 - Optional: the hardened Baritone API Fabric 1.17.0 integration build for Minecraft 1.21.11
 
@@ -75,6 +75,17 @@ Fix it by replacing the profile:
 3. Add Fabric API `0.141.6+1.21.11` and the mapper JAR to `mods`, then launch the new profile.
 
 On Android launchers (PojavLauncher / Mojo) the Fabric version list often defaults to an old loader; set the loader version explicitly when installing Fabric, and check the runtime is JDK 21. If the crash still mentions major version 65, the old profile is still being launched — the stack trace ends in `KnotClient` before any `rtpmapper` class appears.
+
+### `Mod resolution failed` / `Incompatible mods found!`
+
+This one is also the loader, not the mods. A 1.21.11 profile needs **Fabric Loader 0.19.3 or newer**; 0.16.12 (and 0.17.x/0.18.x) is rejected because Fabric API `0.141.6+1.21.11` already requires `fabricloader >= 0.17.3` and this mod requires `>= 0.19.3`:
+
+```text
+Mod 'DonutSMP RTP Mapper' (rtpmapper) 1.3.0 requires version 0.19.3 or later
+of mod 'Fabric Loader' (fabricloader), but only the wrong version is present: 0.16.12!
+```
+
+`0.19.5` is the newest stable loader for Minecraft 1.21.11 (0.20.x is still beta). Reinstall Fabric for 1.21.11 with loader **0.19.5** — the launcher's profile name then reads `fabric-loader-0.19.5-1.21.11`, which you can confirm from the `Selected Minecraft version:` line at the top of `latestlog.txt`. If your launcher's version picker only shows old builds, refresh/update the launcher so it re-reads <https://meta.fabricmc.net/v2/versions/loader/1.21.11>.
 
 Open **Settings → Mining** to configure targets and permissions This hardened API build removes Baritone's separate chat command controller, so mining remains reachable through the mapper's guarded programmatic integration rather than Baritone chat commands. A stock Baritone JAR does not provide that guarantee. Mining is never automatically resumed after a disconnect.
 
