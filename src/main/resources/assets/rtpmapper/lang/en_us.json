@@ -1,0 +1,7 @@
+{
+  "key.rtpmapper.open": "Open RTP Mapper",
+  "key.rtpmapper.emergency_stop": "Emergency Stop",
+  "key.category.rtpmapper.controls": "DonutSMP RTP Mapper",
+  "gui.rtpmapper.open": "RTP Mapper",
+  "gui.rtpmapper.open.tooltip": "Open the DonutSMP RTP Mapper (default key: Right Shift)"
+}
