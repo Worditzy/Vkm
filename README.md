@@ -62,6 +62,20 @@ There are two ways to open the mapper screen:
 
 ## Optional Baritone mining
 
+## Troubleshooting
+
+### `Unsupported class file major version 65`
+
+The game crashed inside Fabric Loader before this mod was ever loaded. Minecraft 1.21.11 and this mod are compiled for Java 21 (class file major version 65), and the launcher profile is running **Fabric Loader 0.14.6**, whose bundled ASM cannot read Java 21 classes (`McVersionLookup` → `ClassReader` in the stack trace).
+
+Fix it by replacing the profile:
+
+1. Create a fresh Fabric installation for Minecraft 1.21.11 and pick **loader 0.19.3 or newer** (0.14.x, 0.15.x and 0.16.x do not work with 1.21.11).
+2. Make sure the launcher's Java runtime is **Java 21**; the mod declares `java >=21` and `fabricloader >=0.19.3` in `fabric.mod.json`.
+3. Add Fabric API `0.141.6+1.21.11` and the mapper JAR to `mods`, then launch the new profile.
+
+On Android launchers (PojavLauncher / Mojo) the Fabric version list often defaults to an old loader; set the loader version explicitly when installing Fabric, and check the runtime is JDK 21. If the crash still mentions major version 65, the old profile is still being launched — the stack trace ends in `KnotClient` before any `rtpmapper` class appears.
+
 Open **Settings → Mining** to configure targets and permissions This hardened API build removes Baritone's separate chat command controller, so mining remains reachable through the mapper's guarded programmatic integration rather than Baritone chat commands. A stock Baritone JAR does not provide that guarantee. Mining is never automatically resumed after a disconnect.
 
 ## Data storage
